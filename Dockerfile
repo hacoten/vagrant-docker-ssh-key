@@ -16,10 +16,12 @@ RUN \
 # locate
 RUN updatedb
 
+# Setting Sudo
+RUN chmod 4755 /usr/bin/sudo
+
 # Create User
 RUN useradd --create-home -s /bin/bash docker && \
     echo "docker:docker" | chpasswd
-# RUN mkdir -p /home/docker
 RUN echo "docker ALL=(ALL) ALL" >> /etc/sudoers.d/docker
 
 # Setup sshd
@@ -35,6 +37,6 @@ RUN chmod 700 /home/docker/.ssh
 RUN chmod 600 /home/docker/.ssh/authorized_keys
 RUN /etc/init.d/ssh start;/etc/init.d/ssh stop
 
-EXPOSE 22 80
+EXPOSE 22
 CMD ["/usr/sbin/sshd","-D"]
 

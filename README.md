@@ -11,11 +11,14 @@ Local => Vagrant => Docker
 * Vagrant IP -> 192.168.34.10
 * PortFoward
     * Vagrant(12222) ==> Docker(22)
+* Docker User
+    * docker(password:docker)
 
 ## Setup
 1. Local 
 
         $ git clone git@github.com:hacoten/vagrant-docker-ssh-key.git
+        $ cd vagrant-docker-ssh-key
         $ vagrant up
         $ vagrant ssh
 
